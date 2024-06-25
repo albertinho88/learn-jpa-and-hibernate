@@ -1,5 +1,6 @@
 package ec.clicka.springboot.learnjpaandhibernate.course.jdbc;
 
+import ec.clicka.springboot.learnjpaandhibernate.course.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,10 @@ public class CourseJdbcCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        repository.insert();
+        repository.insert(new Course(1,"Learn AWS Now!","in28minutes"));
+        repository.insert(new Course(2,"Learn Azure Now!","in28minutes"));
+        repository.insert(new Course(3,"Learn DevOps Now!","in28minutes"));
+        repository.deleteById(1);
     }
 
 }
